@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tietokantojen perusteet - syksy 2017 | Johdanto</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <link href="stylesheets/styles-cbde3c5b.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/xcode.min.css">
+
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.1/cookieconsent.min.css" />
+
+    <link rel="stylesheet" href="//2017-ohjelmointi.github.io/cdn/code-states-visualizer.css" />
+
+      <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-47575342-7', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <div class="header-wrapper">
+        <div class="browser-support-warning" id="browser-support-warning" style="display: none;">
+  Kaikki tämän materiaalin osat eivät välttämättä tuo nykyistä selaintasi. Voisitko harkita vaihtamista <a href="https://www.google.com/chrome/browser/desktop/" target="_blank">Chrome</a> tai <a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank">Firefox</a> selaimeen?
+  <span class="browser-support-warning__close">Selvä!</span>
+</div>
+
+
+        <nav class="navbar navbar-light bg-white">
+  <a class="navbar-brand" href="http://mooc.fi" alt="MOOC" target="_blank">
+    <span class="icon-mooc"></span>
+  </a>
+
+  <ul class="nav navbar-nav hidden-md-down">
+      <li class="nav-item active">
+        <a href="./" class="nav-link" onclick="ga('send', 'event', 'navigation_topic_link', 'click', '#&lt;Middleman::Sitemap::Resource path=index.html&gt;')">Johdanto</a>
+      </li>
+      <li class="nav-item ">
+        <a href="part1/" class="nav-link" onclick="ga('send', 'event', 'navigation_topic_link', 'click', '#&lt;Middleman::Sitemap::Resource path=part1.html&gt;')">Osa 1</a>
+      </li>
+      <li class="nav-item ">
+        <a href="part2/" class="nav-link" onclick="ga('send', 'event', 'navigation_topic_link', 'click', '#&lt;Middleman::Sitemap::Resource path=part2.html&gt;')">Osa 2</a>
+      </li>
+      <li class="nav-item ">
+        <a href="part3/" class="nav-link" onclick="ga('send', 'event', 'navigation_topic_link', 'click', '#&lt;Middleman::Sitemap::Resource path=part3.html&gt;')">Osa 3</a>
+      </li>
+      <li class="nav-item ">
+        <a href="part4/" class="nav-link" onclick="ga('send', 'event', 'navigation_topic_link', 'click', '#&lt;Middleman::Sitemap::Resource path=part4.html&gt;')">Osa 4</a>
+      </li>
+      <li class="nav-item ">
+        <a href="part5/" class="nav-link" onclick="ga('send', 'event', 'navigation_topic_link', 'click', '#&lt;Middleman::Sitemap::Resource path=part5.html&gt;')">Osa 5</a>
+      </li>
+      <li class="nav-item ">
+        <a href="part6/" class="nav-link" onclick="ga('send', 'event', 'navigation_topic_link', 'click', '#&lt;Middleman::Sitemap::Resource path=part6.html&gt;')">Osa 6</a>
+      </li>
+      <li class="nav-item ">
+        <a href="part7/" class="nav-link" onclick="ga('send', 'event', 'navigation_topic_link', 'click', '#&lt;Middleman::Sitemap::Resource path=part7.html&gt;')">Osa 7</a>
+      </li>
+  </ul>
+
+  <div class="float-xs-right navbar__buttons">
+    <div class="dropdown" id="mobile-nav-dropdown">
+      <button class="btn btn-secondary dropdown-toggle navbar__mobile-nav-toggle" data-toggle="dropdown">
+        <i class="fa fa-bars"></i>
+      </button>
+
+      <div class="dropdown-menu">
+      </div>
+    </div>
+
+    <a href="https://riot.im/app/#/room/#_ircnet_#tikape:irc.snt.utwente.nl" target="_blank" rel="noopener" class="btn btn-secondary">
+      <span class="hidden-md-down">Chat</span>
+      <i class="fa fa-commenting-o hidden-lg-up"></i>
+    </a>
+
+    <button class="btn btn-secondary" id="table-of-contents-toggle">
+      <span class="hidden-md-down">Sisällysluettelo</span>
+      <i class="fa fa-ellipsis-h hidden-lg-up"></i>
+    </button>
+
+    <button class="btn btn-primary" id="tmc-login-toggle">Kirjaudu sisään</button>
+  </div>
+</nav>
+
+      </div>
+
+      <div class="content-wrapper">
+        <div class="container material" id="material">
+
+          <h1 class="material-heading">
+    Yleistä kurssista
+
+</h1>
+
+<p>
+  Tämä materiaali on tarkoitettu Helsingin yliopiston tietojenkäsittelytieteen laitoksen kurssille Tietokantojen perusteet (5 op). Kurssilla oletetaan, että osallistuja tuntee Helsingin yliopiston kurssien Ohjelmoinnin perusteet (5 op) ja Ohjelmoinnin jatkokurssi (5 op) sisällön. Kurssilla käytetään ohjelmointikielenä em. kursseilla opittua Java-kieltä.
+</p>
+
+<p>
+  Materiaalissa näkyvät aikataulut liittyvät luentomuotoiseen kurssiin. Helsingin yliopiston avoimen yliopiston verkkokurssin määräajat kerrotaan kurssin MOODLE-alustalla.
+</p>
+
+
+<h2 class="material-heading">
+    Osaamistavoitteet ja kurssin sisältö
+
+</h2>
+
+<p>
+  Tietokantojen perusteet -kurssilla tutustutaan tietokantojen suunnitteluun. Tämä kattaa ongelma-alueen (tai järjestelmän) tietosisällön mallintamisen (käsiteanalyysi, luokkakaaviot), tiedon esittämisen (luokkakaaviot, relaatiokaaviot), tiedon tallentamisen ja tiedon hakemisen (SQL-kieli). Kurssilla tutustutaan lisäksi tiedon tallentamiseen liittyvään lainsäädäntöön sekä henkilötietolakiin, tietokantojen historiaan, tietokantaa käyttävien sovellusten luomiseen sekä tietokannan toiminnan kannalta oleellisiin käsitteisiin kuten indeksit, transaktiot ja eheys. Kurssin pääpaino on relaatiotietokannoissa, mutta kurssilla tutustutaan pintapuolisesti myös muihin tietokantajärjestelmiin. Kurssiin kuuluu luentojen ja harjoitustehtävien lisäksi pienryhmissä tehtävä laajempi harjoitustyö, jossa suunnitellaan ja toteutetaan tietokantaa käyttävä web-sovellus.
+</p>
+
+
+<table class="table">
+  <tr>
+    <th>
+      Viikko
+    </th>
+    <th>
+      Osaamistavoitteet
+    </th>
+  </tr>
+  <tr>
+    <td>
+      Esitiedot
+    </td>
+    <td>
+      Tuntee olio-ohjelmoinnin peruskäsitteet kurssien Ohjelmoinnin perusteet (TKT-10002) ja Ohjelmoinnin jatkokurssi (TKT-10003) laaajuudessa.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      1
+    </td>
+    <td>
+      Tuntee käsitteet digitalisaatio, tietokannanhallintajärjestelmä ja tietokanta. Ymmärtää tietokantojen roolin digitalisaatiossa. Tuntee ongelmia, joita tietokannanhallintajärjestelmät pyrkivät ratkaisemaan. Osaa luoda luokkakaavion annetun ohjelman lähdekoodista ja osaa luoda annetussa luokkakaaviossa kuvatut luokat. Ymmärtää luokkien, olioiden ja reaalimaailman käsitteiden suhteen. Osaa käsitellä tietoa ohjelmallisesti.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      2
+    </td>
+    <td>
+      Ymmärtää että tietoa voidaan käsitellä erilaisilla abstraktiotasoilla. Osaa luoda SQL-kielellä yhden tietokantataulun sisältävän tietokannan, lisätä tietokantatauluun tietoa ja tehdä kyselyitä tietokantatauluun. Osaa luoda ohjelman, joka kommunikoi tietokannanhallintajärjestelmän kanssa valmiin rajapinnan kautta. Tuntee käsitteen SQL-injektio. Tietää menetelmiä SQL-injektioon perustuvien hyökkäysten tekemiseen ja osaa toisaalta puolustautua niiltä.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      3
+    </td>
+    <td>
+      Tuntee luokkakaavioissa esiintyvät assosiaatiot yhden suhde yhteen, yhden suhde moneen ja monen suhde moneen. Osaa luoda annetusta luokkakaaviosta relaatiokaavion, ja osaa muuntaa luokkakaavion assosiaatiot tarvittaessa tietokannalle sopivampaan muotoon. Tuntee käsitteet pääavain ja viiteavain. Osaa luoda SQL-kielellä useampia tietokantatauluja sisältävän tietokannan, lisätä tietokantaan tietoa, ja tehdä tietokantaan kyselyitä. Osaa hakea useammasta tietokantataulusta tietoa JOIN-kyselyiden avulla. Osaa luoda ohjelman, joka hyödyntää useamman tietokantataulun sisältävää tietokantaa ja tuntee data access object (DAO) -suunnittelumallin.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      4
+    </td>
+    <td>
+      Tuntee käsiteanalyysin askeleet. Osaa luoda ongelma-alueen kuvauksesta luokkakaavion sekä johtaa siitä relaatiokaavion. Tietää käsitteet tietokannan normalisointi ja tietokannan denormalisointi. Tuntee tietokannan normalisointiin liittyvät ensimmäisen, toisen ja kolmannen normaalimuodon. Osaa perustella noudattaako annettu tietokanta em. normaalimuotoja. Osaa esittää tietoa XML ja HTML-kielellä.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      5
+    </td>
+    <td>
+      Osaa tehdä SQL-kielellä yhteenvetokyselyitä. Osaa luoda yhtä tietokantataulua käyttävän ja muokkaavan web-sovelluksen, jota voi käyttää selaimella. Tuntee sekvenssikaaviot.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      6
+    </td>
+    <td>
+      Tuntee käsitteet indeksi, transaktio ja tietokannan eheys. Osaa luoda useampaa tietokantataulua käyttävän ja muokkaavan web-sovelluksen. Osaa siirtää web-sovelluksen verkkoon, missä se on kaikkien nähtävillä.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      7
+    </td>
+    <td>
+      Tuntee pinnallisesti muutamia NoSQL- ja NewSQL-tietokantoja. Tuntee skaalautuvuuteen liittyvän CAP-teoreeman. Tuntee uuden GDPR-lainsäädännön oleellisimmat vaikutukset tietokantojen suunnitteluun ja henkilötietojen tallennukseen.
+    </td>
+  </tr>
+</table>
+
+<h2 class="material-heading">
+    Työskentelytavat ja aikataulu
+
+</h2>
+
+<p>
+  Kurssin suorittaminen perustuu vahvasti itse- ja ryhmäopiskeluun. Opiskelun tueksi kurssilla on viikoittaiset harjoitusryhmät, joihin ilmoittaudutaan WebOodin kautta. Harjoitusryhmissä käydään sekä viikon tehtäviä läpi että harjoitellaan oleellisimpia kurssin asioita. Kurssilla on viikoittaiset luennot perjantaisin klo 12:15-14:00 Exactumin salissa B123 (ei luentoja 6.10. ja 13.10.).
+</p>
+
+<p>
+  Harjoitusryhmät kokoontuvat Exactumin salissa B221 (mikroluokka).
+</p>
+
+<ul>
+  <li>Keskiviikko 12-14, Elina Lassila (elina.lassila at helsinki.fi)</li>
+  <li>Keskiviikko 14-16, Elina Lassila</li>
+  <li>Torstai 10-12, Heikki Ahonen (heikki.a.ahonen at helsinki.fi)</li>
+  <li>Torstai 14-16, Terho Uotila (ttuotila at cc.helsinki.fi)</li>
+  <li>Torstai 16-18, Terho Uotila</li>
+  <li>Perjantai 10-12, Hossein Bahmanpour (hossein.bahmanpour at helsinki.fi)</li>
+</ul>
+
+<p>
+  Ensimmäisen viikon harjoitusryhmien tehtävät tehdään paikan päällä. Seuraavien viikkojen harjoitusryhmiä varten tulee myös kotona tehtäviä tehtäviä. Kurssilla on lisäksi ryhmätyö, ryhmät muodostetaan kurssin kolmannella viikolla harjoitustilaisuuksissa.
+</p>
+
+<p>
+  Kurssilla on sekä itsenäisesti tehtäviä ohjelmointitehtäviä että harjoitustilaisuuksiin tuotavia tehtäviä. Aikataulu tehtävien palauttamiseen on seuraava.
+</p>
+
+<ul>
+  <li>
+    <strong>Itsenäisesti tehtävät ohjelmointitehtävät</strong>. Huom! Muuttunut! Tehtävät palautetaan TMC:n kautta. Ensimmäisen osan ohjelmointitehtävät tulee olla palautettuna 18.9. klo 23:55 mennessä, toisen osan ohjelmointitehtävät tulee olla palautettuna 25.9. klo 23:55 mennessä jne.
+  </li>
+  <li>
+    <strong>Harjoitusryhmiin tuotavat ja harjoitusryhmissä tehtävät tehtävät</strong>. Harjoitusryhmiin tuotavat tehtävät tulee tehdä ennen oman ryhmä kokoontumista. Harjoitusryhmissä tehtävät tehtävät tehdään harjoitusryhmissä.
+  </li>
+  <li>
+    <strong>Kurssiin liittyvä harjoitustyö</strong> palautetaan kahdessa osassa. Ensimmäinen osa sisältää työn suunnitelman (palautetaan 10.10. klo 23:55 mennessä) ja toinen osa konkreettisen työn (palautetaan 29.10. klo 23:55 mennessä). Huom, muuttunut!
+  </li>
+</ul>
+
+<p>
+  <strong>
+    Tietokantojen perusteiden kurssikoe järjestetään maanantaina 23.10. klo 16:00 Exactumin saleissa A111 ja CK112. Kokeeseen saa tuoda mukanaan käsin kirjoitetun kaksipuolisen A4-kokoisen "lunttilapun".
+  </strong>
+</p>
+
+
+<h2 class="material-heading">
+    Tehtävät
+
+</h2>
+
+<p>
+  <em>
+    Huomaa, että tämä lista ei koske Helsingin yliopiston Avoimen yliopiston verkkokurssia. Verkkokurssin tehtävät listataan MOODLEssa.
+  </em>
+</p>
+
+<p>
+  <strong>
+    Kotona tehtävät paikan päälle tuotavat tehtävät
+  </strong>
+</p>
+
+<ul>
+  <li>
+    <a href="https://docs.google.com/document/d/1paG7mnlO9b3Z45UhbsPAPFIm7Om5KNZWvmVh1qmjvSw/edit?usp=sharing" target="_blank" norel>Viikko 2</a> tuodaan 13-15.9. järjestettäviin harjoitusryhmiin.
+  </li>
+  <li>
+    <a href="https://docs.google.com/document/d/1sEh_IvlKyd1NCdQeD35SSwDVtjoKTwiNCkorPIZRpTM/edit?usp=sharing" target="_blank">Viikko 3</a> tuodaan 20-22.9. järjestettäviin harjoitusryhmiin.
+  </li>
+  <li>
+    <a href="https://docs.google.com/document/d/18kdzUkbf6cj7WQSSVqU6ikTD2YgXzM3qU1kIPSyPa6Y/edit?usp=sharing" target="_blank">Viikko 4</a> tuodaan 27-29.9. järjestettäviin harjoitusryhmiin.
+  </li>
+  <li>
+    <a href="https://docs.google.com/document/d/1toE7gUwyJuZAc-XRcLidHlwNi_aGIHK7L8G5G-7oCIw/edit?usp=sharing" target="_blank">Viikko 5</a> tuodaan 4-6.10. järjestettäviin harjoitusryhmiin.
+  </li>
+  <li>
+    <a href="https://docs.google.com/document/d/1VmXlYfhdVrkVKAQnr9tYoszfl0Rs5XfkoCOP3MOZTzo/edit?usp=sharing" target="_blank" norel>Viikko 6</a> tuodaan 11-13.10. järjestettäviin harjoitusryhmiin.
+  </li>
+  <li>
+    <a href="https://docs.google.com/document/d/1HnJP7T8ybOfdYuo0eulvgU_xEPItdW9xjEvuZGG77MM/edit?usp=sharing" target="_blank" norel>Viikko 7</a> tuodaan 18-20.10. järjestettäviin harjoitusryhmiin.
+  </li>
+</ul>
+
+<p>
+  <strong>
+    Kotona tehtävät ohjelmointitehtävät
+  </strong>
+</p>
+
+<ul>
+  <li>
+    Osan 1 ohjelmointitehtävät, palautus 18.9. klo 23:55 mennessä.
+  </li>
+  <li>
+    Osan 2 ohjelmointitehtävät, palautus 25.9. klo 23:55 mennessä.
+  </li>
+  <li>
+    Osan 3 ohjelmointitehtävät, palautus 2.10. klo 23:55 mennessä.
+  </li>
+  <li>
+    Osan 4 ohjelmointitehtävät, palautus 9.10. klo 23:55 mennessä.
+  </li>
+  <li>
+    Osan 5 ohjelmointitehtävät, palautus 16.10. klo 23:55 mennessä.
+  </li>
+  <li>
+    Osan 6 ohjelmointitehtävät, palautus 23.10. klo 23:55 mennessä.
+  </li>
+  <li>
+    Osan 7 ohjelmointitehtävät, palautus 30.10. klo 23:55 mennessä (vaikuttavat arvosteluun bonuspisteinä).
+  </li>
+</ul>
+
+<p>
+  <strong>
+    Harjoitusryhmissä läsnä tehtävät tehtävät
+  </strong>
+</p>
+
+<p>
+  Tehtävät julkaistaan harjoitustilaisuuksissa. 
+</p>
+  
+<ul>
+  <li>
+    <a href="https://docs.google.com/document/d/1P6_U0YCRkYAUBsXwbZ5L0Mxsn8RC4RZl1FGIYd2r9vc/edit?usp=sharing"  target="_blank" norel>Viikko 1</a>
+  </li>
+  <li>
+    <a href="https://docs.google.com/document/d/1k17YiEPWVcDVYEDaAPSvtityyU_NiCHvm3-_AC1uhn4/edit?usp=sharing" target="_blank">Viikko 2</a>
+  </li>
+  <li>
+    <a href="https://docs.google.com/document/d/1H-0Na2xxGcneCpLOmx8feNYa04V-ll5b3AHHPFMUR_0/edit?usp=sharing" target="_blank">Viikko 3</a>
+  </li>
+  <li>
+    <a href="https://docs.google.com/document/d/1_u1HkV0ySx9_FObMxZ8pegqlJfRAVMzLL8TzZF-LveQ/edit?usp=sharing" target="_blank">Viikko 4</a>
+  </li>
+  <li>
+    <a href="https://docs.google.com/document/d/1EuGUR4vfXE91qRyezP8aHXOk9hVE11QfXeuZlqC8WXU/edit?usp=sharing" target="_blank">Viikko 5</a>
+  </li>
+  <li>
+    <a href="https://docs.google.com/document/d/1dJxM9TfQtBObOvwEzpg920zpzdng04g8KN0TIC2JqMw/edit?usp=sharing" target="_blank">Viikko 6</a>
+  </li>
+  <li>
+    <a href="https://docs.google.com/document/d/1l4538HrwH6-Csoa7mYWhRqMM720AJa3zi8_XFKljTa0/edit?usp=sharing" target="_blank">Viikko 7</a>
+  </li>
+</ul>
+
+<p>
+  Harjoitustyön ensimmäisen osan ohjeet löytyvät neljännen viikon tehtävistä. Toisen osan tehtävänanto löytyy <a href="https://docs.google.com/document/d/1n9NpJeM18IFOZrKg9ll13LXk37deQ2-Dh45nvaMoCQo/edit?usp=sharing" target="_blank">tämän osan takaa</a>. Harjoitustyö palautetaan sekä Artolle (arto.hellas@cs.helsinki.fi) että ryhmän ohjaajalle. Tarkemmat palautusohjeet edeltävästä dokumentista. Muistattehan antaa vertaispalautetta ryhmäläisistä kummankin harjoitystyön osan jälkeen.
+</p>
+
+
+<h2 class="material-heading">
+    Tukiväylät
+
+</h2>
+
+<p>
+  Kurssilla on maanantaisin klo 14-16 järjestettävä kyselytuntimuotoinen paja, joka kokoontuu luokassa C221.
+</p>
+
+<p>
+  Verkon yli nopein tapa avun kysymiseen on kurssin keskustelukanava <code>#tikape</code>, johon pääsee helpointen kanavan Matrix-huoneen kautta: <a href="https://riot.im/app/#/room/#_ircnet_#tikape:irc.snt.utwente.nl"  target="_blank" rel="noopener">https://riot.im/app/#/room/#tikape:matrix.org</a>. Jos et pidä modernista teknologiasta, voit myös liityä huoneeseen Ircnetin kautta seuraamalla näitä ohjeita: <a href="http://mooc.fi/courses/general/ohjelmointi/tukikanavat/irc/ohjeet/" target="_blank" rel="noopener">http://mooc.fi/courses/general/ohjelmointi/tukikanavat/irc/ohjeet/</a> (valitse kanavaksi #tikape).
+</p>
+
+
+
+<h3 class="material-heading">
+    Yhteistyö
+
+</h3>
+
+<p>
+  Hyvä yhteistyö keskittyy jokaisen osapuolen oppimiseen ja parantaa oppimistuloksia. Yhteistyö on kurssin tehtäviä pohtiessa sallittua ja suositeltavaa. 
+</p>
+
+<p>
+  Kurssilla noudatetaan <a href="http://courses.cs.washington.edu/courses/cse100/99au/syllabus.htm#OTHER" target="_blank">Gilligan's Island -sääntöä</a>:
+</p>
+
+<p><em>
+
+  <strong>The Gilligan's Island Rule</strong>: You are free to meet with fellow students(s) and discuss an assignment with them. Writing on a board or shared piece of paper during the meeting is acceptable; however, you should not take any written (electronic or otherwise) record away from the meeting. Everything that you derive from the collaboration should be in your head. After the meeting, engage in at least a half-hour of mind-numbing activity (like watching an episode of Gilligan's Island), before starting to work on the assignment. This will assure that you are able to reconstruct what you learned from the meeting by yourself.
+
+</em></p>
+
+<p>
+  Jos teet tehtäviä yhdessä muiden kanssa, sinun tulee tehdä ja palauttaa omat ratkaisusi itse. Pidä yhteistyörupeaman jälkeen ainakin puolen tunnin tauko, jolloin teet jotain täysin muuta (esim. katsot jakson Gilligan's Islandia tai Salattuja elämiä), ja aloita omien tehtäviesi työstäminen vasta sitten. Kirjoita myös tehtävien palautuksen yhteyteen kommenteissa niiden kurssikavereidesi nimet, joiden kanssa teit yhteistyötä.
+</p>
+
+
+
+<h3 class="material-heading">
+    Opintovilpistä
+
+</h3>
+
+<p>
+  Kurssilla seurataan Helsingin yliopiston opintokäytäntöjä. Plagiarismi ja opintovilppi, eli esimerkiksi netissä olevien tai kaverilta saatujen vastausten kopiointi ja niiden palauttaminen omana työnä on kurssilla kiellettyä. 
+</p>
+
+<p>
+  Todettu opintovilppi johtaa kurssisuorituksen hylkäämiseen ja toistuva opintovilppi voi johtaa opinto-oikeuden määräaikaiseen menettämiseen.  Lue lisää osoitteesta <a href="http://blogs.helsinki.fi/alakopsaa/opiskelijalle/"  target="_blank" >http://blogs.helsinki.fi/alakopsaa/opiskelijalle/</a>.
+</p>
+
+<h2 class="material-heading">
+    Arvostelu
+
+</h2>
+
+
+<p>
+  Kurssin arvostelu perustuu kurssikokeeseen, ennalta harjoitustilaisuuksia varten tehtäviin harjoitustehtäviin sekä ohjelmointitehtäviin, läsnä tehtäviin harjoitustehtäviin, harjoitustyöhön, sekä läsnäoloon harjoitustilaisuuksissa. Kurssin aktiviteeteista voi saada yhteensä 100 pistettä.
+</p>
+
+<p>
+  Kurssin aktiviteeteista saatavat pisteet jakautuvat seuraavasti:
+</p>
+
+<table class="table">
+  <tr>
+    <th>
+      Osa
+    </th>
+    <th>
+      Pistemäärä (korkeintaan)
+    </th>
+  </tr>
+  <tr>
+    <td>
+      Kurssikoe
+    </td>
+    <td>
+      36 pistettä
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Ennalta tehtävät harjoitustehtävät ja ohjelmointitehtävät
+    </td>
+    <td>
+      7 pistettä / viikko, 6 viikkoa, yht 42 pistettä
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Läsnäolo harjoitustilaisuuksissa
+    </td>
+    <td>
+      1 piste / viikko, 7 viikkoa, yht 7 pistettä
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Harjoitustyö
+    </td>
+    <td>
+      15 pistettä
+    </td>
+  </tr>
+</table>
+
+
+<p>
+  Täydet pisteet viikoittaisista harjoitustehtävistä saa tekemällä niistä vähintään 90%. Aktiivisesta läsnäolosta luennoilla saa lisäksi puolikkaan pisteen luentokertaa kohden (korkeintaan 2 pistettä).
+</p>
+
+<p>
+  Kurssin arvosana muodostuu perusteella seuraavasti.
+</p>
+
+
+<table class="table">
+  <tr>
+    <th>
+      Pisteet
+    </th>
+    <th>
+      Arvosana
+    </th>
+  </tr>
+  <tr>
+    <td>
+      < 51
+    </td>
+    <td>
+      Hylätty
+    </td>
+  </tr>
+  <tr>
+    <td>
+      51-60
+    </td>
+    <td>
+      1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      61-70
+    </td>
+    <td>
+      2
+    </td>
+  </tr>
+  <tr>
+    <td>
+      71-80
+    </td>
+    <td>
+      3
+    </td>
+  </tr>
+  <tr>
+    <td>
+      81-90
+    </td>
+    <td>
+      4
+    </td>
+  </tr>
+  <tr>
+    <td>
+      91-100
+    </td>
+    <td>
+      5
+    </td>
+  </tr>
+</table>
+
+
+<h1 class="material-heading">
+    Kurssin työvälineet ja tunnukset
+
+</h1>
+
+<p>
+  Kurssille tarvitset TMC-tunnukset sekä NetBeans with TMC:n. Jos näitä ei ole vielä käytössäsi, ohjeet löytyvät ohjelmoinnin perusteiden johdannosta osoitteesta <a href="https://materiaalit.github.io/ohjelmointi-s17/" target="_blank" norel>materiaalit.github.io/ohjelmointi-s17</a> kohdasta "Tunnukset ja työvälineet". Käytä TMC-tunnuksenasi opiskelijanumeroasi.
+</p>
+
+<p>
+  Valitse palvelin ja kurssi TMC:stä seuraavasti.
+</p>
+
+<ul>
+  <li>Jos suoritat ensimmäisessä periodissa olevaa luentomuotoista kurssia, valitse palvelimeksi <code>https://tmc.mooc.fi/org/hy/courses/245</code> ja kurssiksi <code>hy-tikape-s17</code></li>
+  <li>Jos suoritat koko syksyn mittaista verkkokurssia Helsingin yliopiston avoimen yliopiston kautta, valitse palvelimeksi <code>https://tmc.mooc.fi/org/hy/courses/246</code> ja kurssiksi <code>hy-tikape-s17-avoin</code></li>
+</ul>
+
+<p>
+  Tässä materiaalissa näkyvät aikataulut liittyvät luentomuotoiseen kurssiin. Helsingin yliopiston avoimen yliopiston verkkokurssin määräajat kerrotaan kurssin MOODLE-alustalla.
+</p> 
+
+
+
+<h1 class="material-heading">
+    Analytiikkadatan keräämisestä ja kurssilla tehtävästä tutkimuksesta
+
+</h1>
+
+<h2 class="material-heading">
+    Analytiikkadatan kerääminen ja arvostelu
+
+</h2>
+
+<p>
+  Kurssin aikana tehdyistä tehtävistä kerätään tietoa. Kerätty tieto sisältää materiaalissa olevia kyselyitä, ohjelmointitehtävien vastauksia, sekä kurssimateriaalin käyttöä. Jos et hyväksy tiedon keräämistä, kurssin pisteytyksessä ei voida ottaa näitä suorituksia huomioon. Tallennettu tieto sisältää henkilökohtaisen tunnisteen, jonka perusteella ei voida suoraan päätellä henkilöllisyyttäsi. Tieto ei esimerkiksi siis sisällä nimeäsi tai sähköpostiosoitettasi. 
+</p>
+
+<p>
+  Varmista että TMC:n asetuksissa (Valikko TMC -> Settings) kohdassa "Send snapshots of your progress for study" on ruksi. Jos et halua että työstämistäsi tehtävistä kerätään ajoittaista dataa kurssiarvostelua varten, kurssin tentissä on ylimääräinen ohjelmointiaiheinen tehtävä. Analytiikkadataa kerätään vain kurssiin liittyvistä asioista, ei muista tekemisistäsi.
+</p>
+
+
+<h2 class="material-heading">
+    Kurssilla tehtävästä tutkimuksesta
+
+</h2>
+
+<p>
+  Kurssilla tehdään oppimiseen liittyvää tutkimusta. Tällä tutkimuksella on useampia tavoitteita: (1) lähestyä tilannetta, missä oppimateriaali ja tehtävät osaavat ottaa oppijoiden yksilölliset erot paremmin huomioon ja reagoida niihin tarjoten kohdennetumpaa opetusta, (2) kehittää digitaalisissa ympäristöissä tapahtuvaan oppimiseen liittyvää ymmärrystä ja tietoa, sekä (3) tukea tutkimustiedon kautta muita oppimaterialien kehittäjiä ja oppimisen tutkijoita. Tutkimusdatan hallinnasta vastaa Helsingin yliopiston tietojenkäsittelytieteen laitoksen Agile Education Research -ryhmän Arto Hellas. Anonymisoimattomaan tutkimusdataan eivät pääse käsiksi muut tutkijat. Voit myös pyytää milloin tahansa sinusta kerätyn datan poistamista lähettämällä sähköpostin osoitteeseen arto.hellas@cs.helsinki.fi
+</p>
+
+<p>
+  Työskentelystä kerättyä tietoa käytetään tutkimuksessa jos sallit. Tutkimuksemme päätavoitteena on osaamisen kehittymisen arviointi tekemisen arvioinnin sijaan, mikä mahdollistaisi yksilöllistä osaamista parhaiten kehittävien vinkkien ja tehtävien tarjoamisen. Tutkimustuloksista ei pystytä tunnistamaan yksittäisiä opiskelijoita. Jos et salli kurssin aikana kerättyjen tietojen käyttämistä tutkimuksessa, siitä ei tule minkäänlaisia seuraamuksia.
+</p>
+
+<p>
+  Kurssilla saatetaan tehdä lisäksi tutkimusta, joka voi vaikuttaa kurssikokemukseen (esim. kurssisisältö). Jos osallistut tutkimukseen, saatat saada esimerkiksi uusia ominaisuuksia materiaaliin. Jos et halua osallistua tutkimukseen, saat kurssin sisällöstä perusversion. Tutkimukseen osallistuminen ei vaikuta loppuarvosanaan.
+</p>
+
+
+<div class="quiznator-plugin" data-quiz-id="59b13f92714bcf0004c28481"></div>
+
+
+
+<h1 class="material-heading">
+    Kurssimateriaalin tekijät ja lisenssi
+
+</h1>
+
+<p>
+  Kurssimateriaalin ovat tehneet Arto Hellas (né Vihavainen) ja Matti Luukkainen.
+</p>
+
+<p>
+  Tämä materiaali on lisensoitu Creative Commons BY-NC-SA-lisenssillä, joten voit käyttää ja levittää sitä vapaasti, kunhan alkuperäisten tekijöiden nimiä ei poisteta. Jos teet muutoksia materiaaliin ja haluat levittää muunneltua versiota, se täytyy lisensoida samanlaisella vapaalla lisenssillä. Materiaalien käyttö kaupalliseen tarkoitukseen on ilman erillistä lupaa kielletty.
+</p>
+
+
+<p>
+  <em>Linkit kurssin sisältöön löytyvät tämän materiaalin ylälaidasta. Kurssimateriaalia julkaistaan kurssin edetessä.</em>
+</p>
+
+        </div>
+      </div>
+
+      <div class="footer-wrapper">
+        <footer class="footer">
+  <div>
+    Tämä materiaali on lisensoitu Creative Commons BY-NC-SA-lisenssillä
+    <a href="https://github.com/materiaalit/ohjelmointi-k18" class="footer__github-link" target="_blank">
+      <i class="fa fa-github"></i>
+    </a>
+  </div>
+  <div class="improvement">
+    <a href="https://github.com/materiaalit/tikape-k18/issues/new"  target="_blank" rel="noopener">
+  <button class='btn btn-primary'>
+    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Ilmoita virhe
+  </button>
+</a>
+<a href="https://github.com/materiaalit/tikape-k18/edit/master/source/index.html.erb" target="_blank" rel="noopener">
+  <button class='btn btn-primary'>
+    <i class="fa fa-pencil" aria-hidden="true"></i>
+ Muokkaa sivua
+  </button>
+</a>
+
+  </div>
+</footer>
+
+      </div>
+    </div>
+
+    <div class="modal fade" id="tmc-login-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form id="tmc-login-form">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Kirjaudu TMC-käyttäjällesi</h4>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-info">
+            Puuttuuko sinulta TMC-käyttäjätunnus? <a href="https://tmc.mooc.fi/user/new" class="alert-link" target="_blank">Rekisteröidy</a>
+          </div>
+
+          <div class="alert alert-danger" id="tmc-login-error" style="display: none;"></div>
+
+          <div class="form-group">
+            <label>Käyttäjätunnus</label>
+            <input type="text" id="tmc-login-username" class="form-control" placeholder="Käyttäjätunnus"/>
+          </div>
+
+          <div class="form-group">
+            <label>Salasana</label>
+            <input type="password" id="tmc-login-password" class="form-control" placeholder="Salasana"/>
+          </div>
+
+          <div class="form-group">
+            <label>Kurssi</label>
+
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="tmcLoginCourse" value="hy-tikape-s17">
+                hy-tikape-s17 (Tietokantojen perusteet, syksy 2017)
+              </label>
+            </div>
+
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="tmcLoginCourse" value="hy-tikape-s17-avoin">
+                hy-tikape-s17-avoin (Tietokantojen perusteet, syksy 2017, Avoin yliopisto)
+              </label>
+            </div>
+
+            <small class="form-text text-muted">
+              Kurssin valinnalla on pieniä vaikutuksia materiaalin tiettyihin osiin.
+            </small>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a class="btn btn-secondary" data-dismiss="modal">Sulje</a>
+          <button type="submit" class="btn btn-primary">Kirjaudu sisään</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+    <div class="table-of-contents-layer" id="table-of-contents-layer">
+</div>
+
+<div class="table-of-contents" id="table-of-contents">
+  <h1 class="table-of-contents__heading">
+    Sisällysluettelo
+  </h1>
+
+  <div class="table-of-contents__content">
+    <ul id="table-of-contents-list"></ul>
+  </div>
+</div>
+
+
+    <script>
+  window._QUIZNATOR_ENABLED = true;
+</script>
+
+<script src="https://quiznator.herokuapp.com/javascripts/plugin-loader.min.js"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+	    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	    crossorigin="anonymous"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script>
+      window.SD_SHOW_SURVEY = ['part6', 'part7'].indexOf(window.location.pathname.replace(/\//g,'')) >= 0;
+    </script>
+
+    <script src="javascripts/scripts-efc72c4d.js"></script>
+
+    <script src="https://use.fontawesome.com/ed2f73836b.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.1/cookieconsent.min.js"></script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/diff_match_patch/20121119/diff_match_patch.js'></script>
+
+    <script>window.cookieconsent.initialise({"palette":{"popup":{"background":"#000"},"button":{"background":"#f1d600"}}});</script>
+
+  </body>
+</html>
